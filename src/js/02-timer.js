@@ -33,6 +33,8 @@ flatpickr(selectors.selectDate, options);
 selectors.btn.addEventListener('click', handlerStart);
 
 function handlerStart() {
+  selectors.btn.disabled = true;
+  selectors.selectDate.disabled = true;
   let intervalId = setInterval(() => {
     selectors.day.textContent = addLeadingZero(convertMs(timeToChange).days);
     selectors.hour.textContent = addLeadingZero(convertMs(timeToChange).hours);
@@ -49,6 +51,7 @@ function handlerStart() {
       (selectors.second.textContent === '00')
     ) {
       clearInterval(intervalId);
+      selectors.selectDate.disabled = false;
     }
     timeToChange -= 1000;
     convertMs(timeToChange);
