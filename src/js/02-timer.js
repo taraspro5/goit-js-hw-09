@@ -25,7 +25,6 @@ const options = {
       return Notiflix.Notify.failure('Please choose a date in the future');
     }
     timeToChange = selectedDates[0] - currentTime;
-    console.log(timeToChange);
     selectors.btn.disabled = false;
   },
 };
